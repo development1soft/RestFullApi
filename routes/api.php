@@ -18,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/test',function(){
-    echo 'welcome from test api';
+Route::prefix('v1')->group(function () {
+    Route::get('/test', function () {
+        echo 'welcome from test api version 1';
+    });
+});
+
+Route::prefix('v2')->group(function () {
+    Route::get('/test', function () {
+        echo 'welcome from test api version 23';
+    });
 });
