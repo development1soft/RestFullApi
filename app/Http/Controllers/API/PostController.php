@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,20 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // 1 - all is not allowed
+        // 2 - Meta Data Not Allowed * Finished
+        // 3 - Db Schema Exposed
+        // 4 - Status Code
+
+        $posts = Post::all();
+
+        return response()->json(
+            [
+                'data'=>$posts,
+                'request_date'=>date('Y-M-D'),
+
+            ],
+            200);
     }
 
     /**

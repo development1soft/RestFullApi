@@ -19,13 +19,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::prefix('v1')->group(function () {
-    Route::get('/test', function () {
-        echo 'welcome from test api version 1';
-    });
-});
-
-Route::prefix('v2')->group(function () {
-    Route::get('/test', function () {
-        echo 'welcome from test api version 23';
-    });
+    Route::apiResource('posts','API\PostController');
 });
